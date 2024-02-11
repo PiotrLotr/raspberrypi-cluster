@@ -1,0 +1,11 @@
+global:
+  scrape_interval: 15s
+  evaluation_interval: 15s
+
+scrape_configs:
+  - job_name: 'debian'
+    static_configs:
+      - targets: ['localhost:9100']  # Replace with the actual address and port where Node Exporter is running on the Debian system
+
+remote_write:
+  - url: 'http://localhost:9090/api/v1/write'  # Replace with the Prometheus server address and port
