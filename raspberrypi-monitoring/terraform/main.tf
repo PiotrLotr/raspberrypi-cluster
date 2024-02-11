@@ -1,15 +1,27 @@
-
 resource "docker_image" "prometheus" {
   name         = "prometheus:latest"
   keep_locally = false
 }
 
-resource "docker_container" "nginx" {
-  image = docker_image.nginx.image_id
-  name  = "tutorial"
+resource "docker_container" "" {
+  image = docker_image.prometheus.image_id
+  name  = "prometheus"
   ports {
-    internal = 80
-    external = 8000
+    internal = 9000
+    external = 9000
   }
 }
 
+resource "docker_image" "grafana" {
+  name         = "grafana:latest"
+  keep_locally = false
+}
+
+resource "docker_container" "" {
+  image = docker_image.grafana.image_id
+  name  = "grafana"
+  ports {
+    internal = 3000
+    external = 3000
+  }
+}
