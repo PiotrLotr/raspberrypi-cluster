@@ -3,7 +3,7 @@ resource "docker_image" "prometheus" {
   keep_locally = false
 }
 
-resource "docker_container" "" {
+resource "docker_container" "prometheus_container" {
   image = docker_image.prometheus.image_id
   name  = "prometheus"
   ports {
@@ -17,7 +17,7 @@ resource "docker_image" "grafana" {
   keep_locally = false
 }
 
-resource "docker_container" "" {
+resource "docker_container" "grafana_container" {
   image = docker_image.grafana.image_id
   name  = "grafana"
   ports {
