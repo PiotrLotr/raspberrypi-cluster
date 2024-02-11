@@ -1,14 +1,18 @@
 #!/bin/bash
 
+
+echo "(/) :: Updating and upgrading system"
 sudo apt get update && sudo apt upgrade
+echo "(+) :: The job is finished"
 
 
-# install packages
+echo "(/) :: Installing packages"
 packages=[vim]
 sudo apt-get install $packages
+echo "(+) :: The job is finished"
 
 
-# docker installation
+echo "(/) :: Installing and configuring docker"
 sudo apt-get install ca-certificates curl
 sudo install -m 0755 -d /etc/apt/keyrings
 sudo curl -fsSL https://download.docker.com/linux/debian/gpg -o /etc/apt/keyrings/docker.asc
@@ -22,9 +26,11 @@ $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | sudo tee /etc/apt/sou
 sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 sudo apt-get install docker-compose
 sudo chmod 777 /var/run/docker.sock
+echo "(+) :: The job is finished"
 
 
-# git installation
+echo "(/) :: Installing and configuring git"
 sudo apt-get install git
-git config --global init.defaultBranch <name>
-git branch -m <name>
+# git config --global init.defaultBranch <name>
+# git branch -m <name>
+echo "(+) :: The job is finished"
