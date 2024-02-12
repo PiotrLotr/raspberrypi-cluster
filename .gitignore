@@ -8,3 +8,10 @@
 .ssh/
 .sudo_as_admin_successful
 .viminfo
+
+../.gnupg/
+../.terraform.d/
+../.wget-hsts
+terraform/.terraform.lock.hcl
+terraform/.terraform/
+
