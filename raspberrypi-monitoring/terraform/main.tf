@@ -1,6 +1,5 @@
 resource "docker_image" "prometheus" {
-  name         = "prometheus:latest"
-  keep_locally = false
+  name         = "prom/prometheus:latest"
 }
 
 resource "docker_container" "prometheus_container" {
@@ -13,7 +12,7 @@ resource "docker_container" "prometheus_container" {
 }
 
 resource "docker_image" "grafana" {
-  name         = "grafana:latest"
+  name         = "grafana/grafana:latest"
   keep_locally = false
 }
 
@@ -23,5 +22,19 @@ resource "docker_container" "grafana_container" {
   ports {
     internal = 3000
     external = 3000
+  }
+}
+
+resource "docker_image" "node_exporter" {
+  name         = "quay.io/prometheus/node-exporter:latest"
+  keep_locally = false
+}
+
+resource "docker_container" "node_exporter_container" {
+  image = docker_image.node_exporter.image_id
+  name  = "node_exporter"
+  ports {
+    internal = 9100
+    external = 9100
   }
 }

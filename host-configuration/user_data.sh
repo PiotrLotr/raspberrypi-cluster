@@ -17,6 +17,8 @@ sudo apt-get install ca-certificates curl
 sudo install -m 0755 -d /etc/apt/keyrings
 sudo curl -fsSL https://download.docker.com/linux/debian/gpg -o /etc/apt/keyrings/docker.asc
 sudo chmod a+r /etc/apt/keyrings/docker.asc
+sudo chmod 777 /var/run/docker.sock
+
 
 echo   "deb [ \
 arch=$(dpkg --print-architecture) \
