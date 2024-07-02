@@ -7,7 +7,7 @@ echo "(+) :: The job is finished"
 
 
 echo "(/) :: Installing packages"
-packages=[vim]
+packages=[ vim ]
 sudo apt-get install $packages
 echo "(+) :: The job is finished"
 

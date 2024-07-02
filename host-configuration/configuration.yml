@@ -1,0 +1,12 @@
+---
+
+debian:
+  processor: 'x86_64'
+  apt:
+    packages:
+      [ vim ]
+  python:
+    version:     
+amazon_linux:
+  config:
+    processor:
